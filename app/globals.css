@@ -2,22 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&family=Poppins:wght@700&display=swap');
-/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap'); */
-
 
 :root {
   --primary: #F56565;
   --secondary: #868686;
-  --error: #ff4a4a;
+
   --neutral: #b7b6b6c8; /*#cbd5e0*/
 }
 
 .light-mode {
   --primary: #F56565;
   --secondary: #4e4e4e;
-  --error: #b52727;
 
     --color-text: #151618;
     --color-accent: #E76A10;
@@ -25,47 +20,20 @@
   
 }
 
-html {
-  font-size: 16px;
-  font-family: 'Manrope', sans-serif;
-  line-height: 1.5;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-/* base styles & title */
-body {
-  /* font-family: "Noto Serif"; */
-  /* color: var(--secondary); */
-}
-
-/* main{
-  max-width: 960px;
-  margin: 0 auto;
-} */
-
-
-h1{
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  font-size: 5.6875rem;
-    line-height: 1.2;
-    letter-spacing: -0.39813rem;
-    margin: 0 0 4rem;
-}
 
 .home::before {
   content: '';
-  inset: 0;
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg, rgba(21, 22, 24, 0.94) 0%, #151618 100%);
   background-image: url('./assets/eng.jpg');
   background-repeat: no-repeat;
   background-position:center;
-  z-index: -1;
+  z-index: -5;
   opacity: .9;
+  height: 100dvh;
+  bottom: 0 !important;
   transition-property: opacity;
 }
 
@@ -86,43 +54,44 @@ h1{
 }
 
 /* upload form styles */
-form {
-  margin: 30px auto 10px;
+.upload{
+  margin: 8px auto 2px;
   text-align: center;
+
+  label input {
+    height: 0;
+    width: 0;
+    opacity: 0;
+  }
+  
+  label {
+    display: block;
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--primary);
+    border-radius: 50%;
+    margin: 10px auto;
+    line-height: 30px;
+    color: var(--primary);
+    font-weight: bold;
+    font-size: 24px;
+  }
+  
+  label:hover {
+    background: var(--primary);
+    color: white;
+  }
 }
 
-label input {
-  height: 0;
-  width: 0;
-  opacity: 0;
-}
 
-label {
-  display: block;
-  width: 30px;
-  height: 30px;
-  border: 1px solid var(--primary);
-  border-radius: 50%;
-  margin: 10px auto;
-  line-height: 30px;
-  color: var(--primary);
-  font-weight: bold;
-  font-size: 24px;
-}
-
-label:hover {
-  background: var(--primary);
-  color: white;
-}
 
 .output {
-  height: 60px;
+  height: auto;
+  width: 100%;
   font-size: 0.8rem;
 }
 
-.error {
-  color: var(--error);
-}
+
 
 /* progress bar styles */
 .progress-bar {
@@ -157,7 +126,7 @@ label:hover {
 .img-wrap img {
   min-width: 100%;
   min-height: 100%;
-  max-width: 150%;
+  max-width: 150%; 
   position: absolute;
   top: 0;
   left: 0;

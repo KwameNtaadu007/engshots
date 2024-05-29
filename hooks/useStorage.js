@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { getFirestore, collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
-const useStorage = (file) => {
+const useStorage = (file,fileData) => {
   const [progress, setProgress] = useState(0);
   const [error, setError] = useState(null);
   const [url, setUrl] = useState(null);
@@ -34,7 +34,7 @@ const useStorage = (file) => {
         try {
           const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
           const createdAt = serverTimestamp();
-          await addDoc(collectionRef, { url: downloadURL, createdAt });
+          await addDoc(collectionRef, { url: downloadURL,...fileData ,createdAt });
           setUrl(downloadURL);
         } catch (error) {
           setError(error);
@@ -47,7 +47,7 @@ const useStorage = (file) => {
       // Cancel the upload task if it's still running
       uploadTask.cancel();
     };
-  }, [file]);
+  }, [file,fileData]);
 
   return { progress, url, error };
 }
