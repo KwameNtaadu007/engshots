@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '@/app/components/Header';
+import Header from '../app/components/Header';
 import { nunito } from './components/fonts/fonts';
 import './globals.css';
 

@@ -14,10 +14,17 @@ const Modal = ({ setSelectedImg, selectedImg }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
     >
-      <motion.img src={selectedImg} alt="enlarged pic" 
+      {/* <div> */}
+      <motion.img src={selectedImg.url} alt="enlarged pic" 
         initial={{ y: "-100vh" }}
         animate={{ y: 0 }}
       />
+      
+      {/* <div className='p-2 flex flex-col gap-3  bg-white w-full'>
+        <div className='font-bold'>{selectedImg.fileName}</div>
+        <div className=''>{selectedImg.description}</div>
+      </div> 
+      </div>*/}
     </motion.div>
   )
 }

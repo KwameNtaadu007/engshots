@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import logo from "@/app/assets/engshotBshape.png"
+import logo from "../assets/engshotBshape.png"
 import NavLinks from "./NavLinks";
 
 

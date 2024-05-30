@@ -1,4 +1,4 @@
-import UploadForm from "@/app/components/UploadForm";
+import UploadForm from "../../components/UploadForm";
 
 
 

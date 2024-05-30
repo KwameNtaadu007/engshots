@@ -1,7 +1,6 @@
 import { signInWithEmailAndPassword} from "firebase/auth"
-import { db,auth } from "@/firebase/config";
+import { db,auth } from "../../firebase/config";
 import { signOut } from "firebase/auth";
-import { redirect } from "next/dist/server/api-utils";
 import { ZodError } from "zod";
 import { signInSchema } from "./zod";
 

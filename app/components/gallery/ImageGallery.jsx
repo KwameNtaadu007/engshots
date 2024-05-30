@@ -13,7 +13,7 @@ export default function ImageGallery({images,setSelectedImg}) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1 }}
-            onClick={() => setSelectedImg(image.url)}
+            onClick={() => setSelectedImg(image)}
              />
           ))}
         </div>

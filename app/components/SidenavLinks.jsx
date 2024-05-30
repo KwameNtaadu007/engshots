@@ -1,8 +1,8 @@
 "use client"
 import {
-  UserGroupIcon,
   HomeIcon,
   DocumentDuplicateIcon,
+  CloudArrowUpIcon,
 } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
 import Link from 'next/link';
@@ -17,10 +17,10 @@ const links = [
     href: '/admin',
     icon: DocumentDuplicateIcon,
   },
-  { name: 'upload', href: '/admin/upload', icon: UserGroupIcon },
+  { name: 'upload', href: '/admin/upload', icon: CloudArrowUpIcon },
 ];
 
-export default function NavLinks() {
+export default function SidenavLinks() {
   const pathname = usePathname(); 
   return (
     <>
@@ -31,7 +31,7 @@ export default function NavLinks() {
             key={link.name}
             href={link.href}
             className={clsx(
-              'flex flex-wrap h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-secondary/10 hover:text-secondary md:flex-none md:justify-start md:p-2 md:px-3',
+              'flex flex-wrap h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-secondary/10 hover:text-secondary lg:flex-none lg:justify-start lg:p-2 lg:px-3',
               {
                 'bg-text-secondary/10 text-secondary': pathname === link.href,
               },

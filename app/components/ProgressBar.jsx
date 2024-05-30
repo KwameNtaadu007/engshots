@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import useStorage from '@/hooks/useStorage';
+import useStorage from '../../hooks/useStorage';
 import { motion } from 'framer-motion';
 
 const ProgressBar = ({ file, fileData,setFile,setError,setMessage }) => {
@@ -12,7 +12,8 @@ const ProgressBar = ({ file, fileData,setFile,setError,setMessage }) => {
      
     }
     if(error){
-      setError(error.message)
+      //setError(error.message)
+      console.log(error.message)
     }
   }, [url, setFile, setMessage,error,setError]);
 
