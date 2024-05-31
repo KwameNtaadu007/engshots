@@ -14,7 +14,7 @@ const ProtectRoutes = ({ children }) => {
     let isUpload = pathname.includes('/admin/upload'); 
     if (!user?.email) {
       if(isDash||isUpload)
-        return router.push('/login'); // Redirect to login page if not authenticated
+        return router.push('/'); // Redirect to login page if not authenticated
     }
   }, [user, router,pathname]);
 

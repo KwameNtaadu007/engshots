@@ -1,12 +1,12 @@
-import Breadcrumbs from '../../components/dashboard/breadcrumbs'
-import EditForm from '../../components/dashboard/editform'
-import { getImageById } from "../../../firebase/dbQuery"
-export default async function page({ params }) {
+import Breadcrumbs from '../../components/dashboard/breadcrumbs';
+import EditForm from '../../components/dashboard/editform';
+import { getImageById } from '../../../firebase/dbQuery';
+
+export default async function Page({ params }) {
   const imageId = params?.id;
   const imageData = await getImageById(imageId);
-  
-  return (
 
+  return (
     <>
       <Breadcrumbs
         breadcrumbs={[
@@ -19,8 +19,8 @@ export default async function page({ params }) {
         ]}
       />
       <main className='w-full flex justify-center'>
-        <EditForm imageData={imageData} />
+        <EditForm imageData={imageData} imageId={imageId}/>
       </main>
     </>
-  )
+  );
 }

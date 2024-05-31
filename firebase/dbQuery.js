@@ -60,6 +60,28 @@ function formatOneTimestamps(data) {
   return formattedData;
 }
 
+
+export async function getAllImageIds() {
+  try {
+    console.log("Fetching all document IDs from the images collection");
+
+    const colRef = collection(db, "images"); 
+    const colSnap = await getDocs(colRef);
+
+    if (!colSnap.empty) {
+      const ids = colSnap.docs.map(doc => doc.id);
+      return ids;
+    } else {
+      console.log("No documents found in the collection.");
+      return [];
+    }
+  } catch (error) {
+    console.error("Error fetching document IDs from the collection:", error.message);
+    return [];
+  }
+}
+
+
 async function findById(colName, docId) {
   try {
     console.log(`Fetching document from collection: ${colName} with ID: ${docId}`);
@@ -150,6 +172,7 @@ export async function postData(col,colData){
 }
 
 export async function putData(col,id,updateObject){
+  let timeStamp = current_timestamp();
   try {//col eg: sales,Expenses
     const colDoc = doc(db,col,id);
     let result = await updateDoc(colDoc,updateObject) //updateObject eg: unitPrice:30
